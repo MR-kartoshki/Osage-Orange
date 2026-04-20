@@ -1,9 +1,26 @@
 # Osage Orange
 
-## Setup
+Fabric mod for Minecraft **1.21.11** that adds a full **Osage Orange** tree and wood set with a throwable **Hedge Apple** item.
 
-For setup instructions, please see the [Fabric Documentation page](https://docs.fabricmc.net/develop/getting-started/creating-a-project#setting-up) related to the IDE that you are using.
+## Features
+
+- Osage Orange worldgen in forest biomes
+- Full wood set (logs, wood, planks, stairs, slab, fence, fence gate, door, trapdoor, pressure plate, button)
+- Sign and hanging sign variants
+- Boat and chest boat
+- Throwable Hedge Apple (stack size 16, cooldown, damage on hit, compostable)
+
+## Requirements
+
+- Minecraft 1.21.11
+- Fabric Loader
+- Fabric API
+- Java 21
+
+## Project origin link
+
+- https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/requests-ideas-for-mods/3225224-a-tree-and-wood-type-mod
 
 ## License
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+Code and assets in this repository are licensed under the terms in [LICENSE](LICENSE).

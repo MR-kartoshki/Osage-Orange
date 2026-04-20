@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "stage=0": {
+      "model": "osage-orange:block/osage_orange_sapling"
+    },
+    "stage=1": {
+      "model": "osage-orange:block/osage_orange_sapling"
+    }
+  }
+}

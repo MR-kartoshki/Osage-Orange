@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "osage-orange:block/osage_orange_sapling"
+  }
+}

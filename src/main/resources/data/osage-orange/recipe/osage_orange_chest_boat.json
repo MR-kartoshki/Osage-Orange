@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "chest_boat",
+  "ingredients": [
+    "minecraft:chest",
+    "osage-orange:osage_orange_boat"
+  ],
+  "result": {
+    "count": 1,
+    "id": "osage-orange:osage_orange_chest_boat"
+  }
+}

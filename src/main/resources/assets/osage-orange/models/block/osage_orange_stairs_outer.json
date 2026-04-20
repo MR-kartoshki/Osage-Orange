@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "osage-orange:block/osage_orange_planks",
+    "side": "osage-orange:block/osage_orange_planks",
+    "top": "osage-orange:block/osage_orange_planks"
+  }
+}

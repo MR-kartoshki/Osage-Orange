@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/flower_pot_cross",
+  "textures": {
+    "plant": "osage-orange:block/osage_orange_sapling"
+  }
+}

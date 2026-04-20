@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "osage-orange:item/osage_orange_hanging_sign"
+  }
+}

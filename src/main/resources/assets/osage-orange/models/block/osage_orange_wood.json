@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "osage-orange:block/osage_orange_log",
+    "side": "osage-orange:block/osage_orange_log"
+  }
+}

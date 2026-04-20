@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_side",
+  "textures": {
+    "texture": "osage-orange:block/osage_orange_planks"
+  }
+}

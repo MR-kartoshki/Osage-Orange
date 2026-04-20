@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "osage-orange:osage_orange_log",
+    "osage-orange:stripped_osage_orange_log",
+    "osage-orange:osage_orange_wood",
+    "osage-orange:stripped_osage_orange_wood",
+    "osage-orange:osage_orange_planks",
+    "osage-orange:osage_orange_stairs",
+    "osage-orange:osage_orange_slab",
+    "osage-orange:osage_orange_fence",
+    "osage-orange:osage_orange_fence_gate",
+    "osage-orange:osage_orange_door",
+    "osage-orange:osage_orange_trapdoor",
+    "osage-orange:osage_orange_pressure_plate",
+    "osage-orange:osage_orange_button",
+    "osage-orange:osage_orange_sign",
+    "osage-orange:osage_orange_wall_sign",
+    "osage-orange:osage_orange_hanging_sign",
+    "osage-orange:osage_orange_wall_hanging_sign",
+    "osage-orange:osage_orange_leaves",
+    "osage-orange:osage_orange_sapling",
+    "osage-orange:potted_osage_orange_sapling"
+  ]
+}
