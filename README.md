@@ -17,6 +17,10 @@ Fabric mod for Minecraft **1.21.11** that adds a full **Osage Orange** tree and 
 - Fabric API
 - Java 21
 
+## Credits
+Code by: Me (MR-kartoshki)
+Textures by: RadicalRadiation (On minecraft forums) and the missing boat, chest boat, sign, and hanging sign textures by me.
+
 ## Project origin link
 
 - https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/requests-ideas-for-mods/3225224-a-tree-and-wood-type-mod
