@@ -17,6 +17,7 @@ import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.SignItem;
+import net.minecraft.world.level.block.DispenserBlock;
 
 public final class ModItems {
 	public static final Item OSAGE_ORANGE_LOG = registerBlockItem("osage_orange_log", ModBlocks.OSAGE_ORANGE_LOG);
@@ -46,6 +47,7 @@ public final class ModItems {
 
 	public static void initialize() {
 		CompostableRegistry.INSTANCE.add(CRAB_APPLE, 0.3F);
+		DispenserBlock.registerProjectileBehavior(CRAB_APPLE);
 
 		// Slot each group in right after the pale oak equivalents so the items read as
 		// "the next wood type" instead of being dumped at the bottom of each tab.

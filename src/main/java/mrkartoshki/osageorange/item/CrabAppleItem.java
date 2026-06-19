@@ -1,10 +1,10 @@
 package mrkartoshki.osageorange.item;
 
 import mrkartoshki.osageorange.entity.projectile.CrabAppleProjectileEntity;
+import mrkartoshki.osageorange.sound.ModSounds;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Position;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -27,7 +27,9 @@ public class CrabAppleItem extends Item implements ProjectileItem {
 	@Override
 	public InteractionResult use(Level level, Player player, InteractionHand interactionHand) {
 		ItemStack itemStack = player.getItemInHand(interactionHand);
-		level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
+		// Custom, pre-pitched-down throw sound (the engine clamps live pitch at 0.5, so the
+		// depth has to be baked into the audio file rather than set here).
+		level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSounds.CRAB_APPLE_THROW, SoundSource.NEUTRAL, 0.5F, 0.8F + level.getRandom().nextFloat() * 0.4F);
 		if (level instanceof ServerLevel serverLevel) {
 			Projectile.spawnProjectileFromRotation(CrabAppleProjectileEntity::new, serverLevel, itemStack, player, 0.0F, PROJECTILE_SHOOT_POWER, 1.0F);
 		}

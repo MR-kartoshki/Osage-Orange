@@ -1,0 +1,9 @@
+{
+  "crab_apple_throw": {
+    "category": "neutral",
+    "subtitle": "subtitles.osage-orange.crab_apple_throw",
+    "sounds": [
+      "osage-orange:crab_apple_throw"
+    ]
+  }
+}
