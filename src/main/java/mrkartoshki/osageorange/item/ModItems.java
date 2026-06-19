@@ -15,6 +15,7 @@ import net.minecraft.world.item.BoatItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.SignItem;
 
 public final class ModItems {
@@ -46,36 +47,28 @@ public final class ModItems {
 	public static void initialize() {
 		CompostableRegistry.INSTANCE.add(HEDGE_APPLE, 0.3F);
 
-		CreativeModeTabEvents.modifyOutputEvent(vanillaTab("natural_blocks")).register(output -> {
-			output.accept(OSAGE_ORANGE_LOG);
-			output.accept(STRIPPED_OSAGE_ORANGE_LOG);
-			output.accept(OSAGE_ORANGE_WOOD);
-			output.accept(STRIPPED_OSAGE_ORANGE_WOOD);
-			output.accept(OSAGE_ORANGE_LEAVES);
-			output.accept(OSAGE_ORANGE_SAPLING);
-			output.accept(HEDGE_APPLE);
+		// Slot each group in right after the pale oak equivalents so the items read as
+		// "the next wood type" instead of being dumped at the bottom of each tab.
+		CreativeModeTabEvents.modifyOutputEvent(vanillaTab("building_blocks")).register(output -> {
+			output.insertAfter(Items.PALE_OAK_BUTTON,
+				OSAGE_ORANGE_LOG, OSAGE_ORANGE_WOOD, STRIPPED_OSAGE_ORANGE_LOG, STRIPPED_OSAGE_ORANGE_WOOD,
+				OSAGE_ORANGE_PLANKS, OSAGE_ORANGE_STAIRS, OSAGE_ORANGE_SLAB,
+				OSAGE_ORANGE_FENCE, OSAGE_ORANGE_FENCE_GATE, OSAGE_ORANGE_DOOR, OSAGE_ORANGE_TRAPDOOR,
+				OSAGE_ORANGE_PRESSURE_PLATE, OSAGE_ORANGE_BUTTON);
 		});
 
-		CreativeModeTabEvents.modifyOutputEvent(vanillaTab("building_blocks")).register(output -> {
-			output.accept(OSAGE_ORANGE_PLANKS);
-			output.accept(OSAGE_ORANGE_STAIRS);
-			output.accept(OSAGE_ORANGE_SLAB);
-			output.accept(OSAGE_ORANGE_FENCE);
-			output.accept(OSAGE_ORANGE_FENCE_GATE);
-			output.accept(OSAGE_ORANGE_DOOR);
-			output.accept(OSAGE_ORANGE_TRAPDOOR);
-			output.accept(OSAGE_ORANGE_PRESSURE_PLATE);
-			output.accept(OSAGE_ORANGE_BUTTON);
+		CreativeModeTabEvents.modifyOutputEvent(vanillaTab("natural_blocks")).register(output -> {
+			output.insertAfter(Items.PALE_OAK_LOG, OSAGE_ORANGE_LOG);
+			output.insertAfter(Items.PALE_OAK_LEAVES, OSAGE_ORANGE_LEAVES);
+			output.insertAfter(Items.PALE_OAK_SAPLING, OSAGE_ORANGE_SAPLING, HEDGE_APPLE);
 		});
 
 		CreativeModeTabEvents.modifyOutputEvent(vanillaTab("functional_blocks")).register(output -> {
-			output.accept(OSAGE_ORANGE_SIGN);
-			output.accept(OSAGE_ORANGE_HANGING_SIGN);
+			output.insertAfter(Items.PALE_OAK_HANGING_SIGN, OSAGE_ORANGE_SIGN, OSAGE_ORANGE_HANGING_SIGN);
 		});
 
 		CreativeModeTabEvents.modifyOutputEvent(vanillaTab("tools_and_utilities")).register(output -> {
-			output.accept(OSAGE_ORANGE_BOAT);
-			output.accept(OSAGE_ORANGE_CHEST_BOAT);
+			output.insertAfter(Items.PALE_OAK_CHEST_BOAT, OSAGE_ORANGE_BOAT, OSAGE_ORANGE_CHEST_BOAT);
 		});
 	}
 
