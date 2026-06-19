@@ -3,15 +3,13 @@ package mrkartoshki.osageorange;
 import mrkartoshki.osageorange.block.ModBlocks;
 import mrkartoshki.osageorange.entity.ModEntities;
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockColorRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;
 import net.minecraft.client.model.object.boat.BoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.BiomeColors;
-import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.client.renderer.entity.BoatRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.world.level.FoliageColor;
 
@@ -21,27 +19,22 @@ public class OsageOrangeClient implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
-		EntityModelLayerRegistry.registerModelLayer(OSAGE_ORANGE_BOAT_LAYER, BoatModel::createBoatModel);
-		EntityModelLayerRegistry.registerModelLayer(OSAGE_ORANGE_CHEST_BOAT_LAYER, BoatModel::createChestBoatModel);
+		ModelLayerRegistry.registerModelLayer(OSAGE_ORANGE_BOAT_LAYER, BoatModel::createBoatModel);
+		ModelLayerRegistry.registerModelLayer(OSAGE_ORANGE_CHEST_BOAT_LAYER, BoatModel::createChestBoatModel);
 
-		EntityRendererRegistry.register(ModEntities.HEDGE_APPLE_PROJECTILE, ThrownItemRenderer::new);
-		EntityRendererRegistry.register(ModEntities.OSAGE_ORANGE_BOAT, context -> new BoatRenderer(context, OSAGE_ORANGE_BOAT_LAYER));
-		EntityRendererRegistry.register(ModEntities.OSAGE_ORANGE_CHEST_BOAT, context -> new BoatRenderer(context, OSAGE_ORANGE_CHEST_BOAT_LAYER));
+		EntityRenderers.register(ModEntities.HEDGE_APPLE_PROJECTILE, ThrownItemRenderer::new);
+		EntityRenderers.register(ModEntities.OSAGE_ORANGE_BOAT, context -> new BoatRenderer(context, OSAGE_ORANGE_BOAT_LAYER));
+		EntityRenderers.register(ModEntities.OSAGE_ORANGE_CHEST_BOAT, context -> new BoatRenderer(context, OSAGE_ORANGE_CHEST_BOAT_LAYER));
 
-		ColorProviderRegistry.BLOCK.register(
-			(state, world, pos, tintIndex) -> world != null && pos != null
+		// Tint the leaves with the biome foliage color (tint index 0).
+		BlockColorRegistry.register(
+			(state, world, pos, tints) -> tints.add(world != null && pos != null
 				? BiomeColors.getAverageFoliageColor(world, pos)
-				: FoliageColor.FOLIAGE_DEFAULT,
+				: FoliageColor.FOLIAGE_DEFAULT),
 			ModBlocks.OSAGE_ORANGE_LEAVES
 		);
 
-		BlockRenderLayerMap.putBlocks(
-			ChunkSectionLayer.CUTOUT,
-			ModBlocks.OSAGE_ORANGE_LEAVES,
-			ModBlocks.OSAGE_ORANGE_SAPLING,
-			ModBlocks.POTTED_OSAGE_ORANGE_SAPLING,
-			ModBlocks.OSAGE_ORANGE_DOOR,
-			ModBlocks.OSAGE_ORANGE_TRAPDOOR
-		);
+		// Render layers (cutout) are inherited from the vanilla parent models, so no
+		// BlockRenderLayerMap registration is needed in Minecraft 26.x.
 	}
 }

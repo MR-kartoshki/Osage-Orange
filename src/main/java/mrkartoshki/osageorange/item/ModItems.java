@@ -3,15 +3,16 @@ package mrkartoshki.osageorange.item;
 import mrkartoshki.osageorange.OsageOrange;
 import mrkartoshki.osageorange.block.ModBlocks;
 import mrkartoshki.osageorange.entity.ModEntities;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
+import net.fabricmc.fabric.api.registry.CompostableRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.BoatItem;
-import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
@@ -43,39 +44,43 @@ public final class ModItems {
 	}
 
 	public static void initialize() {
-		CompostingChanceRegistry.INSTANCE.add(HEDGE_APPLE, 0.3F);
+		CompostableRegistry.INSTANCE.add(HEDGE_APPLE, 0.3F);
 
-		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS).register(entries -> {
-			entries.accept(OSAGE_ORANGE_LOG);
-			entries.accept(STRIPPED_OSAGE_ORANGE_LOG);
-			entries.accept(OSAGE_ORANGE_WOOD);
-			entries.accept(STRIPPED_OSAGE_ORANGE_WOOD);
-			entries.accept(OSAGE_ORANGE_LEAVES);
-			entries.accept(OSAGE_ORANGE_SAPLING);
-			entries.accept(HEDGE_APPLE);
+		CreativeModeTabEvents.modifyOutputEvent(vanillaTab("natural_blocks")).register(output -> {
+			output.accept(OSAGE_ORANGE_LOG);
+			output.accept(STRIPPED_OSAGE_ORANGE_LOG);
+			output.accept(OSAGE_ORANGE_WOOD);
+			output.accept(STRIPPED_OSAGE_ORANGE_WOOD);
+			output.accept(OSAGE_ORANGE_LEAVES);
+			output.accept(OSAGE_ORANGE_SAPLING);
+			output.accept(HEDGE_APPLE);
 		});
 
-		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries -> {
-			entries.accept(OSAGE_ORANGE_PLANKS);
-			entries.accept(OSAGE_ORANGE_STAIRS);
-			entries.accept(OSAGE_ORANGE_SLAB);
-			entries.accept(OSAGE_ORANGE_FENCE);
-			entries.accept(OSAGE_ORANGE_FENCE_GATE);
-			entries.accept(OSAGE_ORANGE_DOOR);
-			entries.accept(OSAGE_ORANGE_TRAPDOOR);
-			entries.accept(OSAGE_ORANGE_PRESSURE_PLATE);
-			entries.accept(OSAGE_ORANGE_BUTTON);
+		CreativeModeTabEvents.modifyOutputEvent(vanillaTab("building_blocks")).register(output -> {
+			output.accept(OSAGE_ORANGE_PLANKS);
+			output.accept(OSAGE_ORANGE_STAIRS);
+			output.accept(OSAGE_ORANGE_SLAB);
+			output.accept(OSAGE_ORANGE_FENCE);
+			output.accept(OSAGE_ORANGE_FENCE_GATE);
+			output.accept(OSAGE_ORANGE_DOOR);
+			output.accept(OSAGE_ORANGE_TRAPDOOR);
+			output.accept(OSAGE_ORANGE_PRESSURE_PLATE);
+			output.accept(OSAGE_ORANGE_BUTTON);
 		});
 
-		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
-			entries.accept(OSAGE_ORANGE_SIGN);
-			entries.accept(OSAGE_ORANGE_HANGING_SIGN);
+		CreativeModeTabEvents.modifyOutputEvent(vanillaTab("functional_blocks")).register(output -> {
+			output.accept(OSAGE_ORANGE_SIGN);
+			output.accept(OSAGE_ORANGE_HANGING_SIGN);
 		});
 
-		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries -> {
-			entries.accept(OSAGE_ORANGE_BOAT);
-			entries.accept(OSAGE_ORANGE_CHEST_BOAT);
+		CreativeModeTabEvents.modifyOutputEvent(vanillaTab("tools_and_utilities")).register(output -> {
+			output.accept(OSAGE_ORANGE_BOAT);
+			output.accept(OSAGE_ORANGE_CHEST_BOAT);
 		});
+	}
+
+	private static ResourceKey<CreativeModeTab> vanillaTab(String name) {
+		return ResourceKey.create(Registries.CREATIVE_MODE_TAB, Identifier.fromNamespaceAndPath("minecraft", name));
 	}
 
 	private static Item registerBlockItem(String name, net.minecraft.world.level.block.Block block) {

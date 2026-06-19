@@ -30,7 +30,7 @@ import net.minecraft.world.level.block.TintedParticleLeavesBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallHangingSignBlock;
 import net.minecraft.world.level.block.WallSignBlock;
-import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.BlockEntityTypes;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
@@ -38,10 +38,10 @@ import net.minecraft.world.level.material.MapColor;
 
 public final class ModBlocks {
 	public static final BlockSetType OSAGE_ORANGE_BLOCK_SET_TYPE = BlockSetTypeBuilder.copyOf(BlockSetType.OAK)
-		.soundGroup(SoundType.CHERRY_WOOD)
+		.soundType(SoundType.CHERRY_WOOD)
 		.register(OsageOrange.id("osage_orange"));
 	public static final WoodType OSAGE_ORANGE_WOOD_TYPE = WoodTypeBuilder.copyOf(WoodType.OAK)
-		.soundGroup(SoundType.CHERRY_WOOD)
+		.soundType(SoundType.CHERRY_WOOD)
 		.register(OsageOrange.id("osage_orange"), OSAGE_ORANGE_BLOCK_SET_TYPE);
 
 	public static final Block OSAGE_ORANGE_LOG = register(
@@ -133,10 +133,10 @@ public final class ModBlocks {
 	public static void initialize() {
 		StrippableBlockRegistry.register(OSAGE_ORANGE_LOG, STRIPPED_OSAGE_ORANGE_LOG);
 		StrippableBlockRegistry.register(OSAGE_ORANGE_WOOD, STRIPPED_OSAGE_ORANGE_WOOD);
-		((FabricBlockEntityType) BlockEntityType.SIGN).addSupportedBlock(OSAGE_ORANGE_SIGN);
-		((FabricBlockEntityType) BlockEntityType.SIGN).addSupportedBlock(OSAGE_ORANGE_WALL_SIGN);
-		((FabricBlockEntityType) BlockEntityType.HANGING_SIGN).addSupportedBlock(OSAGE_ORANGE_HANGING_SIGN);
-		((FabricBlockEntityType) BlockEntityType.HANGING_SIGN).addSupportedBlock(OSAGE_ORANGE_WALL_HANGING_SIGN);
+		((FabricBlockEntityType) BlockEntityTypes.SIGN).addValidBlock(OSAGE_ORANGE_SIGN);
+		((FabricBlockEntityType) BlockEntityTypes.SIGN).addValidBlock(OSAGE_ORANGE_WALL_SIGN);
+		((FabricBlockEntityType) BlockEntityTypes.HANGING_SIGN).addValidBlock(OSAGE_ORANGE_HANGING_SIGN);
+		((FabricBlockEntityType) BlockEntityTypes.HANGING_SIGN).addValidBlock(OSAGE_ORANGE_WALL_HANGING_SIGN);
 
 		FlammableBlockRegistry flammables = FlammableBlockRegistry.getDefaultInstance();
 		flammables.add(OSAGE_ORANGE_LOG, 5, 5);

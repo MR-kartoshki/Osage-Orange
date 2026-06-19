@@ -4,6 +4,7 @@ import mrkartoshki.osageorange.entity.ModEntities;
 import mrkartoshki.osageorange.item.ModItems;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.throwableitemprojectile.ThrowableItemProjectile;
@@ -36,7 +37,9 @@ public class HedgeAppleProjectileEntity extends ThrowableItemProjectile {
 	@Override
 	protected void onHitEntity(EntityHitResult entityHitResult) {
 		super.onHitEntity(entityHitResult);
-		entityHitResult.getEntity().hurt(this.damageSources().thrown(this, this.getOwner()), DAMAGE);
+		if (this.level() instanceof ServerLevel serverLevel) {
+			entityHitResult.getEntity().hurtServer(serverLevel, this.damageSources().thrown(this, this.getOwner()), DAMAGE);
+		}
 	}
 
 	@Override
@@ -53,7 +56,7 @@ public class HedgeAppleProjectileEntity extends ThrowableItemProjectile {
 		if (id == 3) {
 			ItemStack itemStack = this.getItem();
 			for (int i = 0; i < 8; i++) {
-				this.level().addParticle(new ItemParticleOption(ParticleTypes.ITEM, itemStack), this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
+				this.level().addParticle(new ItemParticleOption(ParticleTypes.ITEM, itemStack.getItem()), this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
 			}
 			return;
 		}

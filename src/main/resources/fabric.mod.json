@@ -10,6 +10,7 @@
 	"license": "MIT",
 	"icon": "assets/osage-orange/icon.png",
 	"environment": "*",
+	"accessWidener": "osage-orange.accesswidener",
 	"entrypoints": {
 		"main": [
 			"mrkartoshki.osageorange.OsageOrange"
@@ -20,8 +21,8 @@
 	},
 	"depends": {
 		"fabricloader": ">=0.19.2",
-		"minecraft": "~1.21.11",
-		"java": ">=21",
+		"minecraft": ">=26.1",
+		"java": ">=25",
 		"fabric-api": "*"
 	}
 }
