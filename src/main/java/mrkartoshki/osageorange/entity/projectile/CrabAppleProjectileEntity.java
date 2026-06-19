@@ -14,24 +14,24 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 
-public class HedgeAppleProjectileEntity extends ThrowableItemProjectile {
+public class CrabAppleProjectileEntity extends ThrowableItemProjectile {
 	private static final float DAMAGE = 5.0F;
 
-	public HedgeAppleProjectileEntity(EntityType<? extends HedgeAppleProjectileEntity> entityType, Level level) {
+	public CrabAppleProjectileEntity(EntityType<? extends CrabAppleProjectileEntity> entityType, Level level) {
 		super(entityType, level);
 	}
 
-	public HedgeAppleProjectileEntity(Level level, LivingEntity owner, ItemStack stack) {
-		super(ModEntities.HEDGE_APPLE_PROJECTILE, owner, level, stack);
+	public CrabAppleProjectileEntity(Level level, LivingEntity owner, ItemStack stack) {
+		super(ModEntities.CRAB_APPLE_PROJECTILE, owner, level, stack);
 	}
 
-	public HedgeAppleProjectileEntity(Level level, double x, double y, double z, ItemStack stack) {
-		super(ModEntities.HEDGE_APPLE_PROJECTILE, x, y, z, level, stack);
+	public CrabAppleProjectileEntity(Level level, double x, double y, double z, ItemStack stack) {
+		super(ModEntities.CRAB_APPLE_PROJECTILE, x, y, z, level, stack);
 	}
 
 	@Override
 	protected Item getDefaultItem() {
-		return ModItems.HEDGE_APPLE;
+		return ModItems.CRAB_APPLE;
 	}
 
 	@Override

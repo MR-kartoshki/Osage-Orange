@@ -1,6 +1,6 @@
 package mrkartoshki.osageorange.item;
 
-import mrkartoshki.osageorange.entity.projectile.HedgeAppleProjectileEntity;
+import mrkartoshki.osageorange.entity.projectile.CrabAppleProjectileEntity;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Position;
 import net.minecraft.server.level.ServerLevel;
@@ -16,11 +16,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ProjectileItem;
 import net.minecraft.world.level.Level;
 
-public class HedgeAppleItem extends Item implements ProjectileItem {
+public class CrabAppleItem extends Item implements ProjectileItem {
 	private static final float PROJECTILE_SHOOT_POWER = 1.5F;
 	private static final int COOLDOWN_TICKS = 20;
 
-	public HedgeAppleItem(Properties properties) {
+	public CrabAppleItem(Properties properties) {
 		super(properties);
 	}
 
@@ -29,7 +29,7 @@ public class HedgeAppleItem extends Item implements ProjectileItem {
 		ItemStack itemStack = player.getItemInHand(interactionHand);
 		level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
 		if (level instanceof ServerLevel serverLevel) {
-			Projectile.spawnProjectileFromRotation(HedgeAppleProjectileEntity::new, serverLevel, itemStack, player, 0.0F, PROJECTILE_SHOOT_POWER, 1.0F);
+			Projectile.spawnProjectileFromRotation(CrabAppleProjectileEntity::new, serverLevel, itemStack, player, 0.0F, PROJECTILE_SHOOT_POWER, 1.0F);
 		}
 
 		player.getCooldowns().addCooldown(itemStack, COOLDOWN_TICKS);
@@ -40,6 +40,6 @@ public class HedgeAppleItem extends Item implements ProjectileItem {
 
 	@Override
 	public Projectile asProjectile(Level level, Position position, ItemStack itemStack, Direction direction) {
-		return new HedgeAppleProjectileEntity(level, position.x(), position.y(), position.z(), itemStack);
+		return new CrabAppleProjectileEntity(level, position.x(), position.y(), position.z(), itemStack);
 	}
 }

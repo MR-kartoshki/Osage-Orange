@@ -37,7 +37,7 @@ public final class ModItems {
 	public static final Item OSAGE_ORANGE_LEAVES = registerBlockItem("osage_orange_leaves", ModBlocks.OSAGE_ORANGE_LEAVES);
 	public static final Item OSAGE_ORANGE_SAPLING = registerBlockItem("osage_orange_sapling", ModBlocks.OSAGE_ORANGE_SAPLING);
 
-	public static final Item HEDGE_APPLE = register("hedge_apple", new HedgeAppleItem(itemProperties("hedge_apple").stacksTo(16).useCooldown(1.0F)));
+	public static final Item CRAB_APPLE = register("crab_apple", new CrabAppleItem(itemProperties("crab_apple").stacksTo(16).useCooldown(1.0F)));
 	public static final Item OSAGE_ORANGE_BOAT = register("osage_orange_boat", new BoatItem(ModEntities.OSAGE_ORANGE_BOAT, itemProperties("osage_orange_boat").stacksTo(1)));
 	public static final Item OSAGE_ORANGE_CHEST_BOAT = register("osage_orange_chest_boat", new BoatItem(ModEntities.OSAGE_ORANGE_CHEST_BOAT, itemProperties("osage_orange_chest_boat").stacksTo(1)));
 
@@ -45,7 +45,7 @@ public final class ModItems {
 	}
 
 	public static void initialize() {
-		CompostableRegistry.INSTANCE.add(HEDGE_APPLE, 0.3F);
+		CompostableRegistry.INSTANCE.add(CRAB_APPLE, 0.3F);
 
 		// Slot each group in right after the pale oak equivalents so the items read as
 		// "the next wood type" instead of being dumped at the bottom of each tab.
@@ -60,7 +60,7 @@ public final class ModItems {
 		CreativeModeTabEvents.modifyOutputEvent(vanillaTab("natural_blocks")).register(output -> {
 			output.insertAfter(Items.PALE_OAK_LOG, OSAGE_ORANGE_LOG);
 			output.insertAfter(Items.PALE_OAK_LEAVES, OSAGE_ORANGE_LEAVES);
-			output.insertAfter(Items.PALE_OAK_SAPLING, OSAGE_ORANGE_SAPLING, HEDGE_APPLE);
+			output.insertAfter(Items.PALE_OAK_SAPLING, OSAGE_ORANGE_SAPLING, CRAB_APPLE);
 		});
 
 		CreativeModeTabEvents.modifyOutputEvent(vanillaTab("functional_blocks")).register(output -> {

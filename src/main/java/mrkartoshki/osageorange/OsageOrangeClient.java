@@ -22,7 +22,7 @@ public class OsageOrangeClient implements ClientModInitializer {
 		ModelLayerRegistry.registerModelLayer(OSAGE_ORANGE_BOAT_LAYER, BoatModel::createBoatModel);
 		ModelLayerRegistry.registerModelLayer(OSAGE_ORANGE_CHEST_BOAT_LAYER, BoatModel::createChestBoatModel);
 
-		EntityRenderers.register(ModEntities.HEDGE_APPLE_PROJECTILE, ThrownItemRenderer::new);
+		EntityRenderers.register(ModEntities.CRAB_APPLE_PROJECTILE, ThrownItemRenderer::new);
 		EntityRenderers.register(ModEntities.OSAGE_ORANGE_BOAT, context -> new BoatRenderer(context, OSAGE_ORANGE_BOAT_LAYER));
 		EntityRenderers.register(ModEntities.OSAGE_ORANGE_CHEST_BOAT, context -> new BoatRenderer(context, OSAGE_ORANGE_CHEST_BOAT_LAYER));
 

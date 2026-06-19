@@ -1,7 +1,7 @@
 package mrkartoshki.osageorange.entity;
 
 import mrkartoshki.osageorange.OsageOrange;
-import mrkartoshki.osageorange.entity.projectile.HedgeAppleProjectileEntity;
+import mrkartoshki.osageorange.entity.projectile.CrabAppleProjectileEntity;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -13,9 +13,9 @@ import net.minecraft.world.entity.vehicle.boat.ChestBoat;
 import net.minecraft.world.item.Item;
 
 public final class ModEntities {
-	public static final EntityType<HedgeAppleProjectileEntity> HEDGE_APPLE_PROJECTILE = register(
-		"hedge_apple_projectile",
-		EntityType.Builder.<HedgeAppleProjectileEntity>of(HedgeAppleProjectileEntity::new, MobCategory.MISC)
+	public static final EntityType<CrabAppleProjectileEntity> CRAB_APPLE_PROJECTILE = register(
+		"crab_apple_projectile",
+		EntityType.Builder.<CrabAppleProjectileEntity>of(CrabAppleProjectileEntity::new, MobCategory.MISC)
 			.sized(0.25F, 0.25F)
 			.clientTrackingRange(4)
 			.updateInterval(10)
