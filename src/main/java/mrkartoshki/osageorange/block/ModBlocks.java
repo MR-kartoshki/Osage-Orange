@@ -22,6 +22,7 @@ import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.ShelfBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StandingSignBlock;
@@ -126,6 +127,10 @@ public final class ModBlocks {
 		"potted_osage_orange_sapling",
 		new FlowerPotBlock(OSAGE_ORANGE_SAPLING, copyBlockProperties("potted_osage_orange_sapling", Blocks.POTTED_OAK_SAPLING))
 	);
+	public static final Block OSAGE_ORANGE_SHELF = register(
+		"osage_orange_shelf",
+		new ShelfBlock(copyBlockProperties("osage_orange_shelf", Blocks.OAK_SHELF))
+	);
 
 	private ModBlocks() {
 	}
@@ -137,6 +142,7 @@ public final class ModBlocks {
 		((FabricBlockEntityType) BlockEntityTypes.SIGN).addValidBlock(OSAGE_ORANGE_WALL_SIGN);
 		((FabricBlockEntityType) BlockEntityTypes.HANGING_SIGN).addValidBlock(OSAGE_ORANGE_HANGING_SIGN);
 		((FabricBlockEntityType) BlockEntityTypes.HANGING_SIGN).addValidBlock(OSAGE_ORANGE_WALL_HANGING_SIGN);
+		((FabricBlockEntityType) BlockEntityTypes.SHELF).addValidBlock(OSAGE_ORANGE_SHELF);
 
 		FlammableBlockRegistry flammables = FlammableBlockRegistry.getDefaultInstance();
 		flammables.add(OSAGE_ORANGE_LOG, 5, 5);
@@ -156,6 +162,7 @@ public final class ModBlocks {
 		flammables.add(OSAGE_ORANGE_WALL_SIGN, 5, 20);
 		flammables.add(OSAGE_ORANGE_HANGING_SIGN, 5, 20);
 		flammables.add(OSAGE_ORANGE_WALL_HANGING_SIGN, 5, 20);
+		flammables.add(OSAGE_ORANGE_SHELF, 5, 20);
 		flammables.add(OSAGE_ORANGE_LEAVES, 30, 60);
 	}
 

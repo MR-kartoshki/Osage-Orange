@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_shelf_unconnected",
+  "textures": {
+    "all": "osage-orange:block/osage_orange_shelf",
+    "particle": "osage-orange:block/stripped_osage_orange_log"
+  }
+}

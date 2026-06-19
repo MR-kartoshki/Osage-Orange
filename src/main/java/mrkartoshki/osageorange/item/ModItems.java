@@ -37,6 +37,7 @@ public final class ModItems {
 	public static final Item OSAGE_ORANGE_HANGING_SIGN = register("osage_orange_hanging_sign", new HangingSignItem(ModBlocks.OSAGE_ORANGE_HANGING_SIGN, ModBlocks.OSAGE_ORANGE_WALL_HANGING_SIGN, itemProperties("osage_orange_hanging_sign").stacksTo(16)));
 	public static final Item OSAGE_ORANGE_LEAVES = registerBlockItem("osage_orange_leaves", ModBlocks.OSAGE_ORANGE_LEAVES);
 	public static final Item OSAGE_ORANGE_SAPLING = registerBlockItem("osage_orange_sapling", ModBlocks.OSAGE_ORANGE_SAPLING);
+	public static final Item OSAGE_ORANGE_SHELF = registerBlockItem("osage_orange_shelf", ModBlocks.OSAGE_ORANGE_SHELF);
 
 	public static final Item CRAB_APPLE = register("crab_apple", new CrabAppleItem(itemProperties("crab_apple").stacksTo(16).useCooldown(1.0F)));
 	public static final Item OSAGE_ORANGE_BOAT = register("osage_orange_boat", new BoatItem(ModEntities.OSAGE_ORANGE_BOAT, itemProperties("osage_orange_boat").stacksTo(1)));
@@ -66,6 +67,7 @@ public final class ModItems {
 		});
 
 		CreativeModeTabEvents.modifyOutputEvent(vanillaTab("functional_blocks")).register(output -> {
+			output.insertAfter(Items.PALE_OAK_SHELF, OSAGE_ORANGE_SHELF);
 			output.insertAfter(Items.PALE_OAK_HANGING_SIGN, OSAGE_ORANGE_SIGN, OSAGE_ORANGE_HANGING_SIGN);
 		});
 
