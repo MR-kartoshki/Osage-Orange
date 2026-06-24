@@ -1,3 +1,6 @@
 {
-  "parent": "osage-orange:block/osage_orange_sapling"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "osage-orange:block/osage_orange_sapling"
+  }
 }
