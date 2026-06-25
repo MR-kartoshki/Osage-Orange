@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "mrkartoshki.osageorange.mixin",
+	"mixins": [
+		"OverworldBiomeBuilderMixin"
+	],
+	"client": [],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
