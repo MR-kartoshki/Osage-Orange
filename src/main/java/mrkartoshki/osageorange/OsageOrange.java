@@ -4,6 +4,7 @@ import mrkartoshki.osageorange.block.ModBlocks;
 import mrkartoshki.osageorange.entity.ModEntities;
 import mrkartoshki.osageorange.item.ModItems;
 import mrkartoshki.osageorange.sound.ModSounds;
+import mrkartoshki.osageorange.world.BlackBandlandsRuleSource;
 import mrkartoshki.osageorange.world.ModWorldGen;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.resources.Identifier;
@@ -21,6 +22,7 @@ public class OsageOrange implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModSounds.initialize();
+		BlackBandlandsRuleSource.register();
 		ModBlocks.initialize();
 		ModEntities.initialize();
 		ModItems.initialize();

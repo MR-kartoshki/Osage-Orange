@@ -727,7 +727,7 @@
                           "then_run": {
                             "type": "minecraft:block",
                             "result_state": {
-                              "Name": "minecraft:black_terracotta"
+                              "Name": "minecraft:orange_terracotta"
                             }
                           }
                         },
@@ -790,10 +790,7 @@
                                 }
                               },
                               {
-                                "type": "minecraft:block",
-                                "result_state": {
-                                  "Name": "minecraft:black_terracotta"
-                                }
+                                "type": "osage-orange:black_bandlands"
                               }
                             ]
                           }
@@ -845,7 +842,7 @@
                           "then_run": {
                             "type": "minecraft:block",
                             "result_state": {
-                              "Name": "minecraft:black_terracotta"
+                              "Name": "minecraft:orange_terracotta"
                             }
                           }
                         },
@@ -860,7 +857,7 @@
                           "then_run": {
                             "type": "minecraft:block",
                             "result_state": {
-                              "Name": "minecraft:black_terracotta"
+                              "Name": "minecraft:white_terracotta"
                             }
                           }
                         },
@@ -933,16 +930,13 @@
                             "then_run": {
                               "type": "minecraft:block",
                               "result_state": {
-                                "Name": "minecraft:black_terracotta"
+                                "Name": "minecraft:orange_terracotta"
                               }
                             }
                           }
                         },
                         {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "minecraft:black_terracotta"
-                          }
+                          "type": "osage-orange:black_bandlands"
                         }
                       ]
                     }
@@ -967,7 +961,7 @@
                       "then_run": {
                         "type": "minecraft:block",
                         "result_state": {
-                          "Name": "minecraft:black_terracotta"
+                          "Name": "minecraft:white_terracotta"
                         }
                       }
                     }
