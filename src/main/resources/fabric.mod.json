@@ -11,9 +11,6 @@
 	"icon": "assets/osage-orange/icon.png",
 	"environment": "*",
 	"accessWidener": "osage-orange.accesswidener",
-	"mixins": [
-		"osage-orange.mixins.json"
-	],
 	"entrypoints": {
 		"main": [
 			"mrkartoshki.osageorange.OsageOrange"
